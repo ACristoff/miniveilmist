@@ -49,9 +49,18 @@ func _physics_process(delta: float) -> void:
 func attack() -> void:
 	pass
 
+
+
 #TODO Split out the attack cursor as its own node?
 func update_cursor(event):
 	#Get mouse cursor relative to player
 	#Smoothly rotate the aiming cursor towards mouse
 	#Update attack_direction var
+	
+	#TODO create a case for controller input, right stick angle
+	#Probably some better way to get center of screen but fuck it for now
+	#get_viewport().size returns a Vector2i which doesn't play nice with a Vector2
+	var center = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
+	cursor.rotation = position.angle_to_point(event.position - center)
+	attack_direction = cursor.rotation
 	pass

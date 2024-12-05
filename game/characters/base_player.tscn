@@ -27,7 +27,7 @@ texture = ExtResource("2_h7amh")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AttackCursor" type="Node2D" parent="."]
-position = Vector2(200, 0)
 
 [node name="CursorSprite" type="Sprite2D" parent="AttackCursor"]
 texture = ExtResource("2_h7amh")
+offset = Vector2(200, 0)
