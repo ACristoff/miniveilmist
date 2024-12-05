@@ -15,10 +15,17 @@ var ATTACK_SPEED: float = 1.2
 var HEALTH: int = 20
 
 var face_right: bool = true
+var attack_direction: Vector2 = Vector2.UP
 
 var item_stack: Array = []
 
 func _ready() -> void:
+	pass
+
+func _unhandled_input(event: InputEvent) -> void:
+	#TODO Add case for controller related input
+	if event is InputEventMouse:
+		update_cursor(event)
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -37,13 +44,14 @@ func _physics_process(delta: float) -> void:
 	#Idle
 	if velocity.x == 0 and velocity.y == 0:
 		pass
-	
-	update_cursor()
 	move_and_slide()
 
 func attack() -> void:
 	pass
 
 #TODO Split out the attack cursor as its own node?
-func update_cursor():
+func update_cursor(event):
+	#Get mouse cursor relative to player
+	#Smoothly rotate the aiming cursor towards mouse
+	#Update attack_direction var
 	pass
