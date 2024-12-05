@@ -70,5 +70,5 @@ func update_cursor(event):
 	cursor.look_at(get_global_mouse_position())
 	#Gonna have to fix this but I think it works as a radian
 	attack_direction = cursor.rotation
-	#TODO smoothing?
+	#TODO smoothing by updating attack direction and instead moving the cursor to look at in update
 	pass
