@@ -3,6 +3,7 @@ class_name BasePlayer
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var camera: Camera2D = $Camera2D
+@onready var cursor = $AttackCursor
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var attack_timer: Timer = $Timers/AttackTimer
 @onready var cooldown_timer: Timer = $Timers/CooldownTimer
@@ -36,7 +37,13 @@ func _physics_process(delta: float) -> void:
 	#Idle
 	if velocity.x == 0 and velocity.y == 0:
 		pass
+	
+	update_cursor()
 	move_and_slide()
 
 func attack() -> void:
+	pass
+
+#TODO Split out the attack cursor as its own node?
+func update_cursor():
 	pass
