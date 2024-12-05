@@ -1,11 +1,12 @@
 extends CharacterBody2D
 class_name BasePlayer
 
-@onready var sprite = $Sprite2D
-@onready var anim_player = $AnimationPlayer
-@onready var attack_timer = $Timers/AttackTimer
-@onready var cooldown_timer = $Timers/CooldownTimer
-@onready var invul_timer = $Timers/InvulTimer
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var camera: Camera2D = $Camera2D
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var attack_timer: Timer = $Timers/AttackTimer
+@onready var cooldown_timer: Timer = $Timers/CooldownTimer
+@onready var invul_timer: Timer = $Timers/InvulTimer
 
 var SPEED: float = 300.0
 var ATTACK: int = 8
