@@ -15,9 +15,15 @@ var ATTACK_SPEED: float = 1.2
 var HEALTH: int = 20
 
 var face_right: bool = true
-var attack_direction: Vector2 = Vector2.UP
+var attack_direction 
 
-var item_stack: Array = []
+
+#TODO need to define items better
+#Use composition within the player node to manage some items
+var items: Dictionary = {
+	"attacks": [],
+	"stat_upgrades": [],
+}
 
 func _ready() -> void:
 	pass
@@ -47,6 +53,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func attack() -> void:
+	for item in items.attacks:
+		print(item)
+		pass
 	pass
 
 
@@ -58,9 +67,8 @@ func update_cursor(event):
 	#Update attack_direction var
 	
 	#TODO create a case for controller input, right stick angle
-	#Probably some better way to get center of screen but fuck it for now
-	#get_viewport().size returns a Vector2i which doesn't play nice with a Vector2
-	var center = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
-	cursor.rotation = position.angle_to_point(event.position - center)
+	cursor.look_at(get_global_mouse_position())
+	#Gonna have to fix this but I think it works as a radian
 	attack_direction = cursor.rotation
+	#TODO smoothing?
 	pass
