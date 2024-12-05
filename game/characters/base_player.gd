@@ -12,13 +12,16 @@ var ATTACK: int = 8
 var ATTACK_SPEED: float = 1.2
 var HEALTH: int = 20
 
-var face_right = true
+var face_right: bool = true
+
+var item_stack: Array = []
 
 func _ready() -> void:
 	pass
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
 	##PLAYER MOVEMENT##
+	#Change to controller compatible inputs when nicholas updates the controller-controller
 	var horizontalDirection = Input.get_axis("ui_left", "ui_right")
 	var verticalDirection = Input.get_axis("ui_up", "ui_down")
 	#Flip the sprite whether moving left or right
@@ -34,5 +37,5 @@ func _physics_process(delta: float) -> void:
 		pass
 	move_and_slide()
 
-func attack():
+func attack() -> void:
 	pass
