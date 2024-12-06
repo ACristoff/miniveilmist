@@ -55,8 +55,6 @@ func _physics_process(delta: float) -> void:
 func attack() -> void:
 	for item in items.attacks:
 		print(item)
-		pass
-	pass
 
 
 
